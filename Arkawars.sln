@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{93246596-9874-1186-74E0-B478CABE0350}") = "Arkawars", "Assembly-CSharp.csproj", "{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
