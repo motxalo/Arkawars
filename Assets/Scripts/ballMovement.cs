@@ -13,17 +13,19 @@ public class ballMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		/*movimiento*/
 		transform.Translate (Vector3.forward * Time.deltaTime * speed);
 
+		/*colision*/
 		Ray ray = new Ray (transform.position, transform.forward);
 		RaycastHit hit;
 		Debug.DrawRay(transform.position, transform.forward, Color.green);
 
-
 		if (Physics.Raycast (ray, out hit, Time.deltaTime * speed + .1f, collisionMask)) {
 			Vector3 reflectDir = Vector3.Reflect (ray.direction, hit.normal);
-			float rot = 90 - Mathf.Atan2 (reflectDir.z, reflectDir.x) * Mathf.Rad2Deg;
-			transform.eulerAngles = new Vector3 (0, rot, 0);
+			float rot = -1*( 90 - Mathf.Atan2 (reflectDir.x, reflectDir.y) * Mathf.Rad2Deg);
+			transform.eulerAngles = new Vector3 (rot, 90, 0);
 		}
 	}
 
