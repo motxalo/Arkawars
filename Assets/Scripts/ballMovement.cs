@@ -4,6 +4,7 @@ using System.Collections;
 public class ballMovement : MonoBehaviour {
 
 	public LayerMask collisionMask;
+	public string tagMask;
 	public float speed=2f;
 
 	// Use this for initialization
@@ -13,7 +14,7 @@ public class ballMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		/*movimiento*/
 		transform.Translate (Vector3.forward * Time.deltaTime * speed);
 
@@ -26,6 +27,10 @@ public class ballMovement : MonoBehaviour {
 			Vector3 reflectDir = Vector3.Reflect (ray.direction, hit.normal);
 			float rot = -1*( 90 - Mathf.Atan2 (reflectDir.x, reflectDir.y) * Mathf.Rad2Deg);
 			transform.eulerAngles = new Vector3 (rot, 90, 0);
+
+			if (hit.transform.tag == tagMask) {
+				Destroy (hit.transform.gameObject);
+			}
 		}
 	}
 
