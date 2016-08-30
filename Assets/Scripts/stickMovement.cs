@@ -4,8 +4,8 @@ using System.Collections;
 public class stickMovement : MonoBehaviour {
 
 	public GameObject target;
-	public float vel=2;
-
+	public float vel		 = 2f;
+	public float rotateSpeed = 2f;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +18,11 @@ public class stickMovement : MonoBehaviour {
 			rotate (1);
 		else if (Input.GetKey (KeyCode.RightArrow))
 			rotate (-1);
+		if (Input.GetKey (KeyCode.A)){
+			transform.Rotate(new Vector3(0f,0f,rotateSpeed*Time.deltaTime));
+		}else if (Input.GetKey (KeyCode.D)){
+			transform.Rotate(new Vector3(0f,0f,-1f*rotateSpeed*Time.deltaTime));
+		}
 		
 	}
 

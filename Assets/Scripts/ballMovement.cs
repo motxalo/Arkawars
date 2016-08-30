@@ -7,14 +7,43 @@ public class ballMovement : MonoBehaviour {
 	public string tagMask;
 	public float speed=2f;
 
+	public  Vector3 dir ;
+	Rigidbody rb;
+
 	// Use this for initialization
 	void Start () {
-	
+		rb = GetComponent<Rigidbody>();
+		dir = transform.forward;
+		dir.z = 0f;
+		dir.Normalize();
+
 	}
-	
+
+	void FixedUpdate(){
+		rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		SetNewDir(col.contacts[0].normal, col.collider.tag == "Player" );
+	}
+
+	void SetNewDir(Vector3 newNormal, bool isPlayer){
+		newNormal.z = 0f;
+		newNormal.Normalize();
+		dir = Vector3.Reflect(dir,newNormal);
+		return;
+		if ( isPlayer )
+			dir = newNormal;
+		else
+			dir = Quaternion.Euler(0, 0,  180 + Vector3.Angle(-1 * dir,newNormal))*dir;
+	}
+
 	// Update is called once per frame
 	void Update () {
 
+		// TE LO QUITO TODO DESDE AQUI
+		return;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
 		/*movimiento*/
@@ -35,5 +64,7 @@ public class ballMovement : MonoBehaviour {
 			}
 		}
 	}
+
+
 
 }
