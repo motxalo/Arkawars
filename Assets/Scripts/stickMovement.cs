@@ -6,6 +6,7 @@ public class stickMovement : MonoBehaviour {
 	public GameObject target;
 	public float vel		 = 2f;
 	public float rotateSpeed = 2f;
+	public float maxRotation = 15;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,18 +16,23 @@ public class stickMovement : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKey (KeyCode.LeftArrow))
-			rotate (1);
+			Rotate (1);
 		else if (Input.GetKey (KeyCode.RightArrow))
-			rotate (-1);
+			Rotate (-1);
 		if (Input.GetKey (KeyCode.UpArrow)){
-			transform.Rotate(new Vector3(0f,0f,rotateSpeed*Time.deltaTime));
+			RotatePlayer(1f);
 		}else if (Input.GetKey (KeyCode.DownArrow)){
-			transform.Rotate(new Vector3(0f,0f,-1f*rotateSpeed*Time.deltaTime));
+			RotatePlayer(-1f);
 		}
 		
 	}
 
-	void rotate(int dir){
+	void RotatePlayer( float amount ){
+
+		transform.Rotate(new Vector3(0f,0f,amount*rotateSpeed*Time.deltaTime));
+	}
+
+	void Rotate(int dir){
 		transform.RotateAround (target.transform.position, Vector3.forward, vel*dir*Time.deltaTime);		
 	}
 }
