@@ -14,7 +14,9 @@ public class ballMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
 		/*movimiento*/
 		transform.Translate (Vector3.forward * Time.deltaTime * speed);
 
