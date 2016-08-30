@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\ballMovement.cs" />
      <Compile Include="Assets\Scripts\enemyController.cs" />
      <Compile Include="Assets\Scripts\enemyNormalMovement.cs" />
+     <Compile Include="Assets\Scripts\gameManager.cs" />
      <Compile Include="Assets\Scripts\scorerUpdater.cs" />
      <Compile Include="Assets\Scripts\stickMovement.cs" />
  <Reference Include="UnityEngine.UI">

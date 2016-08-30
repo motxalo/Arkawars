@@ -5,7 +5,7 @@ public class enemyNormalMovement : MonoBehaviour {
 
 	public Transform objetive;
 	private Vector3 dir;
-	public float speed = .1f;
+	private float speed = .2f;
 	// Use this for initialization
 	void Start () {
 		objetive = GameObject.Find("Planet").transform;
