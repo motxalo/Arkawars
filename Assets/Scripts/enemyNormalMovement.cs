@@ -11,6 +11,7 @@ public class enemyNormalMovement : MonoBehaviour {
 		objetive = GameObject.Find("Planet").transform;
 		dir = (objetive.position - transform.position).normalized;
 		transform.LookAt(objetive.position);
+		enemyController.AddEnemy(gameObject);
 	}
 	
 	// Update is called once per frame
@@ -18,7 +19,8 @@ public class enemyNormalMovement : MonoBehaviour {
 		transform.position += dir*speed*Time.deltaTime;
 	}
 
-	public void DieYouBastard(){
-		Destroy(gameObject);
+	public void DieYouBastard(int playerId){
+		enemyController.KillEnemy(gameObject,playerId);
+		//Destroy(gameObject);
 	}
 }

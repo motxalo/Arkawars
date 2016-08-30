@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class enemyController : MonoBehaviour {
+public static class enemyController  {
 
-	// Use this for initialization
-	void Start () {
-	
+	private static List<GameObject> enemyPool;
+	public static int points = -1;
+
+	public static void AddEnemy(GameObject _enemy){
+		if(points <0 ) 
+			Init();
+		enemyPool.Add(_enemy);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public static void KillEnemy (GameObject _enemy, int killer ){
+		points++;
+		enemyPool.Remove(_enemy);
+		Destroy(_enemy);
+	}
+
+	static void Init(){
+		enemyPool = new List<GameObject>();
+		points = 0;
 	}
 }

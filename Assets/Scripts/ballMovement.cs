@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ballMovement : MonoBehaviour {
 
+	public int playerId = 0;
+
 	public LayerMask collisionMask;
 	public string tagMask;
 	public float speed=2f;
@@ -27,7 +29,7 @@ public class ballMovement : MonoBehaviour {
 	{
 		switch ( col.collider.tag ){
 		case "Enemy":
-			col.collider.gameObject.SendMessage("DieYouBastard",SendMessageOptions.DontRequireReceiver);
+			col.collider.gameObject.SendMessage("DieYouBastard",playerId,SendMessageOptions.DontRequireReceiver);
 			break;
 		}
 		SetNewDir(col.contacts[0].normal, col.collider.tag == "Player" );
