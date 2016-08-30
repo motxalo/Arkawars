@@ -22,5 +22,11 @@ public class enemyNormalMovement : MonoBehaviour {
 	public void DieYouBastard(int playerId){
 		enemyController.KillEnemy(gameObject,playerId);
 		//Destroy(gameObject);
+		Invoke("Killed",.1f);
+	}
+
+
+	private void Killed(){
+		Destroy(gameObject);
 	}
 }

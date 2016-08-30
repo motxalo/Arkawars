@@ -16,7 +16,7 @@ public static class enemyController  {
 	public static void KillEnemy (GameObject _enemy, int killer ){
 		points++;
 		enemyPool.Remove(_enemy);
-		Destroy(_enemy);
+
 	}
 
 	static void Init(){
