@@ -18,9 +18,9 @@ public class stickMovement : MonoBehaviour {
 			rotate (1);
 		else if (Input.GetKey (KeyCode.RightArrow))
 			rotate (-1);
-		if (Input.GetKey (KeyCode.A)){
+		if (Input.GetKey (KeyCode.UpArrow)){
 			transform.Rotate(new Vector3(0f,0f,rotateSpeed*Time.deltaTime));
-		}else if (Input.GetKey (KeyCode.D)){
+		}else if (Input.GetKey (KeyCode.DownArrow)){
 			transform.Rotate(new Vector3(0f,0f,-1f*rotateSpeed*Time.deltaTime));
 		}
 		

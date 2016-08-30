@@ -25,6 +25,11 @@ public class ballMovement : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col)
 	{
+		switch ( col.collider.tag ){
+		case "Enemy":
+			col.collider.gameObject.SendMessage("DieYouBastard",SendMessageOptions.DontRequireReceiver);
+			break;
+		}
 		SetNewDir(col.contacts[0].normal, col.collider.tag == "Player" );
 	}
 
