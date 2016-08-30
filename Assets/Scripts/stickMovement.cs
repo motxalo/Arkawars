@@ -6,7 +6,8 @@ public class stickMovement : MonoBehaviour {
 	public GameObject target;
 	public float vel		 = 2f;
 	public float rotateSpeed = 2f;
-	public float maxRotation = 15;
+	public float maxRotation = 45;
+	private float rotation = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,8 +29,10 @@ public class stickMovement : MonoBehaviour {
 	}
 
 	void RotatePlayer( float amount ){
+		float oldrotation = rotation;
+		rotation = Mathf.Clamp(rotation + amount*rotateSpeed*Time.deltaTime, -1f*maxRotation,maxRotation);
 
-		transform.Rotate(new Vector3(0f,0f,amount*rotateSpeed*Time.deltaTime));
+		transform.Rotate(new Vector3(0f,0f,rotation - oldrotation));
 	}
 
 	void Rotate(int dir){
