@@ -31,7 +31,7 @@ public class stickMovement : MonoBehaviour {
         else if (rightJoystick.Horizontal() < 0)
             RotatePlayer(1f);
 
-
+<<<<<<< Updated upstream
         if (aButton.ReturnValue() == 1)
             BumpPlayer(-1);
         else if (bButton.ReturnValue() == 1)
@@ -80,7 +80,21 @@ public class stickMovement : MonoBehaviour {
 
         transform.Rotate(new Vector3(0f, 0f, rotation - oldrotation));
     }
+=======
+		// CONTROLES DE PC, NO ME LOS QUITES
+        if (Input.GetKey (KeyCode.LeftArrow))
+            Rotate (1);
+        else if (Input.GetKey (KeyCode.RightArrow))
+			Rotate (-1);
 
+        if (Input.GetKey (KeyCode.UpArrow)){
+			RotatePlayer(1f);
+		}else if (Input.GetKey (KeyCode.DownArrow)){
+			RotatePlayer(-1f);
+		}
+		
+	}
+>>>>>>> Stashed changes
 
     void RotatePlayer( float amount ){
 		float oldrotation = rotation;
