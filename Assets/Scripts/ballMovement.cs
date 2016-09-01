@@ -12,7 +12,7 @@ public class ballMovement : MonoBehaviour {
 	public LayerMask collisionMask;
 	public string tagMask;
 	public float speed=2f;
-
+	public float speedModifier =0f;
 	public  Vector3 dir ;
 	Rigidbody rb;
 
@@ -32,8 +32,9 @@ public class ballMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		speedModifier = Mathf.Clamp(speedModifier-Time.deltaTime, 0f, 5f);
 		UpdateGravity();
-		rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*speed* Time.deltaTime);
+		rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*(speed+speedModifier)* Time.deltaTime);
 	}
 
 	void OnCollisionEnter (Collision col)
@@ -42,8 +43,21 @@ public class ballMovement : MonoBehaviour {
 		case "Enemy":
 			col.collider.gameObject.SendMessage("DieYouBastard",playerId,SendMessageOptions.DontRequireReceiver);
 			break;
+		case "Player":
+			if(col.collider.GetComponent<stickMovement>().Bumping()){
+				SetDirNormal(col.contacts[0].normal);
+				speedModifier = 3f;
+				return;
+			}
+			break;
 		}
 		SetNewDir(col.contacts[0].normal, col.collider.tag == "Player" );
+	}
+
+	void SetDirNormal(Vector3 newNormal){
+		newNormal.z = 0f;
+		newNormal.Normalize();
+		dir = newNormal;
 	}
 
 	void SetNewDir(Vector3 newNormal, bool isPlayer){

@@ -20,40 +20,48 @@ public class stickMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //TACTIL
-        if (leftJoystick.Horizontal()>0)
-            Rotate(-1);
-        else if (leftJoystick.Horizontal() < 0)
-            Rotate(1);
+		if ( bumping ==1){
+			transform.position += transform.up*bumpDistance;
 
-        if (rightJoystick.Horizontal() > 0)
-            RotatePlayer(-1f);
-        else if (rightJoystick.Horizontal() < 0)
-            RotatePlayer(1f);
+		}else if ( bumping == 2){
+			transform.position -= transform.up*bumpDistance;
+		}
+		else{
+        	//TACTIL
+        	if (leftJoystick.Horizontal()>0)
+            	Rotate(-1);
+        	else if (leftJoystick.Horizontal() < 0)
+            	Rotate(1);
 
-        if (aButton.ReturnValue() == 1)
-            BumpPlayer(-1);
-        else if (bButton.ReturnValue() == 1)
-            BumpPlayer(1);
-        else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
-            BumpPlayer(0);
+	        if (rightJoystick.Horizontal() > 0)
+    	        RotatePlayer(-1f);
+   	     	else if (rightJoystick.Horizontal() < 0)
+   	         	RotatePlayer(1f);
+
+       	 	if (aButton.ReturnValue() == 1)
+            	BumpPlayer(-1);
+        	else if (bButton.ReturnValue() == 1)
+            	BumpPlayer(1);
+        	else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
+            	BumpPlayer(0);
         //FIN TACTIL
 
         //TECLADO
-        if (Input.GetKey(KeyCode.LeftArrow))
-            Rotate(1);
-        else if (Input.GetKey(KeyCode.RightArrow))
-            Rotate(-1);
+        	if (Input.GetKey(KeyCode.LeftArrow))
+            	Rotate(1);
+        	else if (Input.GetKey(KeyCode.RightArrow))
+            	Rotate(-1);
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            RotatePlayer(1f);
+        	if (Input.GetKey(KeyCode.UpArrow))
+       		{
+            	RotatePlayer(1f);
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             RotatePlayer(-1f);
         }
 
+		/*
         if (Input.GetKeyDown(KeyCode.Q)){
             BumpPlayer(-1);
         }else if (Input.GetKeyDown(KeyCode.E)){
@@ -63,12 +71,31 @@ public class stickMovement : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E)){
             BumpPlayer(0);
         }
+        */
         //FIN TECLADO
-
-
+		if(Input.GetKeyDown(KeyCode.Space))
+				StartCoroutine("BumpPlayer");
+		}
     }
 
-    void BumpPlayer(int dir)
+	private int bumping = 0;
+	public float bumptime = .2f;
+	public float bumpDistance =.01f;
+	IEnumerator BumpPlayer(){
+		Vector3 tpos = transform.position;
+		bumping = 1;
+		yield return new WaitForSeconds(bumptime/2);
+		bumping = 2;
+		yield return new WaitForSeconds(bumptime/2);
+		bumping = 0;
+		transform.position = tpos;
+	}
+    
+	public bool Bumping(){
+		return bumping != 0;
+	}
+
+	void BumpPlayer(int dir)
     {
         float oldrotation = rotation;
 
