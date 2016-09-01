@@ -5,6 +5,10 @@ public class ballMovement : MonoBehaviour {
 
 	public int playerId = 0;
 
+	public Transform gravityCenter;
+	public float gravity = 1f;
+
+
 	public LayerMask collisionMask;
 	public string tagMask;
 	public float speed=2f;
@@ -21,8 +25,15 @@ public class ballMovement : MonoBehaviour {
 
 	}
 
+	private Vector3 gravityVector;
+	void UpdateGravity(){
+		gravityVector = (gravityCenter.position - transform.position ).normalized;
+		gravityVector.z = 0f;
+	}
+
 	void FixedUpdate(){
-		rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+		UpdateGravity();
+		rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*speed* Time.deltaTime);
 	}
 
 	void OnCollisionEnter (Collision col)
