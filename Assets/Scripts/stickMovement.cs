@@ -28,6 +28,7 @@ public class stickMovement : MonoBehaviour {
 		}
 		else{
         	//TACTIL
+			/*
         	if (leftJoystick.Horizontal()>0)
             	Rotate(-1);
         	else if (leftJoystick.Horizontal() < 0)
@@ -44,6 +45,7 @@ public class stickMovement : MonoBehaviour {
             	BumpPlayer(1);
         	else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
             	BumpPlayer(0);
+            	*/
         //FIN TACTIL
 
         //TECLADO
