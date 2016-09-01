@@ -8,8 +8,8 @@ public class stickMovement : MonoBehaviour {
 	public float rotateSpeed = 2f;
 	public float maxRotation = 45;
 	private float rotation = 0;
-    public virtualLeftJoystick leftJoystick;
-    public virtualRightJoystick rightJoystick;
+    public VirtualLeftJoystick leftJoystick;
+    public VirtualRightJoystick rightJoystick;
     public virtualButton aButton;
     public virtualButton bButton;
     // Use this for initialization
@@ -35,7 +35,7 @@ public class stickMovement : MonoBehaviour {
             BumpPlayer(-1);
         else if (bButton.ReturnValue() == 1)
             BumpPlayer(1);
-        else
+        else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
             BumpPlayer(0);
         //FIN TACTIL
 
