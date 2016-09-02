@@ -63,15 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\VirtualLeftJoystick.cs" />
-    <Compile Include="Assets\Scripts\VirtualRightJoystick.cs" />
     <Compile Include="Assets\Scripts\ballMovement.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />
     <Compile Include="Assets\Scripts\enemyNormalMovement.cs" />
     <Compile Include="Assets\Scripts\gameManager.cs" />
+    <Compile Include="Assets\Scripts\powerupController.cs" />
+    <Compile Include="Assets\Scripts\powerupNormalMovement.cs" />
     <Compile Include="Assets\Scripts\scorerUpdater.cs" />
     <Compile Include="Assets\Scripts\stickMovement.cs" />
     <Compile Include="Assets\Scripts\virtualButton.cs" />
+    <Compile Include="Assets\Scripts\virtualLeftJoystick.cs" />
+    <Compile Include="Assets\Scripts\virtualRightJoystick.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

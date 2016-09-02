@@ -8,8 +8,8 @@ public class stickMovement : MonoBehaviour {
 	public float rotateSpeed = 2f;
 	public float maxRotation = 45;
 	private float rotation = 0;
-    public VirtualLeftJoystick leftJoystick;
-    public VirtualRightJoystick rightJoystick;
+    public virtualLeftJoystick leftJoystick;
+    public virtualRightJoystick rightJoystick;
     public virtualButton aButton;
     public virtualButton bButton;
     // Use this for initialization
