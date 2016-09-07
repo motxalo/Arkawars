@@ -57,11 +57,11 @@ public class stickMovement : MonoBehaviour {
         	if (Input.GetKey(KeyCode.UpArrow))
        		{
             	RotatePlayer(1f);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            RotatePlayer(-1f);
-        }
+        	}
+       		else if (Input.GetKey(KeyCode.DownArrow))
+        	{
+            	RotatePlayer(-1f);
+			}else BackToNormalRotation();
 
 		/*
         if (Input.GetKeyDown(KeyCode.Q)){
@@ -114,6 +114,13 @@ public class stickMovement : MonoBehaviour {
 		rotation = Mathf.Clamp(rotation + amount*rotateSpeed*Time.deltaTime, -1f*maxRotation,maxRotation);
 
 		transform.Rotate(new Vector3(0f,0f,rotation - oldrotation));
+	}
+
+	void BackToNormalRotation(){
+		float oldrotation = rotation;
+		rotation = Mathf.Lerp(rotation,0f,Time.deltaTime*rotateSpeed);
+		transform.Rotate(new Vector3(0f,0f,rotation - oldrotation));
+		//transform.localRotation = Quaternion.Euler(Vector3.Lerp(transform.localRotation.eulerAngles, Vector3.zero, Time.deltaTime*rotateSpeed));
 	}
 
 	void Rotate(int dir){
