@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Particle Ribbon\Scripts\ReverseNormals.cs" />
      <Compile Include="Assets\Scripts\VirtualLeftJoystick.cs" />
      <Compile Include="Assets\Scripts\VirtualRightJoystick.cs" />
      <Compile Include="Assets\Scripts\ballMovement.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\scorerUpdater.cs" />
      <Compile Include="Assets\Scripts\stickMovement.cs" />
      <Compile Include="Assets\Scripts\virtualButton.cs" />
+     <None Include="Assets\Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

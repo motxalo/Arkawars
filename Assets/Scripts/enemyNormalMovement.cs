@@ -6,7 +6,7 @@ public class enemyNormalMovement : MonoBehaviour {
     string[] powerupTypes;
 	public Transform objetive;
 	private Vector3 dir;
-	private float speed = .1f;
+	private float speed = .2f;
 	// Use this for initialization
 	void Start () {
         powerupTypes = new string[] {"A"};
@@ -20,8 +20,10 @@ public class enemyNormalMovement : MonoBehaviour {
 	void Update () {
 		transform.position += dir*speed*Time.deltaTime;
 		// DEBUG
-		if ( Vector3.Distance(transform.position, objetive.position) < 1f )
+		if ( Vector3.Distance(transform.position, objetive.position) < 1f ){
 			Application.LoadLevel(Application.loadedLevel);
+			Debug.Log( " GAME OVER ");
+		}
 	}
 
 	public void DieYouBastard(int playerId){

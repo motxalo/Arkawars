@@ -16,6 +16,8 @@ public class ballMovement : MonoBehaviour {
 	public  Vector3 dir ;
 	Rigidbody rb;
 
+	public GameObject hitEffect;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -41,6 +43,10 @@ public class ballMovement : MonoBehaviour {
 	{
 		switch ( col.collider.tag ){
 		case "Enemy":
+			GameObject tGo = Instantiate(hitEffect) as GameObject;
+			tGo.GetComponent<EllipsoidParticleEmitter>().worldVelocity = ( gravityCenter.position - transform.position).normalized;
+			tGo.transform.position = transform.position;
+			tGo.GetComponent<EllipsoidParticleEmitter>().Emit();
 			col.collider.gameObject.SendMessage("DieYouBastard",playerId,SendMessageOptions.DontRequireReceiver);
 			break;
 		case "Player":
