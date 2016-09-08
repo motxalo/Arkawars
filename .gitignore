@@ -1,5 +1,6 @@
 #carpetas
 obj
+Temp/*.*
 .vs
 
 #archivos
