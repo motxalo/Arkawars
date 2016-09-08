@@ -8,6 +8,10 @@ public class gameManager : MonoBehaviour {
 
 	int actualEnemy = 0;
 
+	void Awake(){
+		InputManager.InitMobileInput();
+	}
+
 	// Use this for initialization
 	void Start () {
 		Invoke("LaunchEnemySet",.1f);

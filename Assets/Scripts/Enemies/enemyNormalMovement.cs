@@ -30,7 +30,7 @@ public class enemyNormalMovement : MonoBehaviour {
 		enemyController.KillEnemy(gameObject,playerId);
         //Destroy(gameObject);
 
-        Instantiate(Resources.Load("PowerupsSet/Powerup_" + powerupTypes[Random.Range(0,powerupTypes.Length-1)]) as GameObject,transform.position,transform.rotation);
+        //Instantiate(Resources.Load("PowerupsSet/Powerup_" + powerupTypes[Random.Range(0,powerupTypes.Length-1)]) as GameObject,transform.position,transform.rotation);
         Invoke("Killed",.1f);
 	}
 

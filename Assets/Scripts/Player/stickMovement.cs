@@ -3,6 +3,7 @@ using System.Collections;
 
 public class stickMovement : MonoBehaviour {
 
+	public int playerId = 1;
 	public GameObject target;
 	public float vel		 = 2f;
 	public float rotateSpeed = 2f;
@@ -49,16 +50,16 @@ public class stickMovement : MonoBehaviour {
         //FIN TACTIL
 
         //TECLADO
-        	if (Input.GetKey(KeyCode.LeftArrow))
+			if (InputManager.MoveLeft(playerId))
             	Rotate(1);
-        	else if (Input.GetKey(KeyCode.RightArrow))
+			else if (InputManager.MoveRight(playerId))
             	Rotate(-1);
 
-        	if (Input.GetKey(KeyCode.UpArrow))
+			if (InputManager.RotateLeft(playerId))
        		{
             	RotatePlayer(1f);
         	}
-       		else if (Input.GetKey(KeyCode.DownArrow))
+			else if (InputManager.RotateRight(playerId))
         	{
             	RotatePlayer(-1f);
 			}else BackToNormalRotation();
@@ -75,7 +76,7 @@ public class stickMovement : MonoBehaviour {
         }
         */
         //FIN TECLADO
-		if(Input.GetKeyDown(KeyCode.Space))
+			if(InputManager.BumpDown(playerId))
 				StartCoroutine("BumpPlayer");
 		}
     }

@@ -6,7 +6,7 @@ using System.Collections;
 public class virtualButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
 
-    private int value = 0;
+	public int value = 0;
 
     public virtual void OnPointerDown(PointerEventData ped)
     {
@@ -23,4 +23,8 @@ public class virtualButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandl
     {
         return value;
     }
+
+	public bool Pressed(){
+		return value!=0;
+	}
 }
