@@ -1,0 +1,9 @@
+#carpetas
+obj
+.vs
+
+#archivos
+Arkawars.CSharp.csproj
+Arkawars.sln
+Arkawars.userprefs
+Assembly-CSharp.csproj
