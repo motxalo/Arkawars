@@ -3,6 +3,7 @@
 -nowarn:0169
 -out:'Temp/Assembly-CSharp.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
@@ -16,6 +17,7 @@
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
 -define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
 -define:ENABLE_FRAME_DEBUGGER
 -define:ENABLE_GENERICS
 -define:ENABLE_HOME_SCREEN
@@ -34,7 +36,6 @@
 -define:ENABLE_RAKNET
 -define:ENABLE_UNET
 -define:ENABLE_UNITYEVENTS
--define:ENABLE_VR
 -define:ENABLE_WEBCAM
 -define:ENABLE_WWW
 -define:ENABLE_CLOUD_SERVICES
@@ -53,22 +54,18 @@
 -define:INCLUDE_IL2CPP
 -define:INCLUDE_DIRECTX12
 -define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
 -define:ENABLE_LOCALIZATION
 -define:ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION
 -define:ENABLE_EDITOR_TESTS_RUNNER
--define:UNITY_ANDROID
--define:UNITY_ANDROID_API
+-define:UNITY_WEBPLAYER
 -define:ENABLE_SUBSTANCE
+-define:WEBPLUG
 -define:ENABLE_TEXTUREID_MAP
--define:ENABLE_EGL
--define:ENABLE_NETWORK
 -define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
 -define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
--define:ENABLE_LOG_MIXED_STACKTRACE
--define:ENABLE_UNITYWEBREQUEST
--define:PLATFORM_SUPPORTS_ADS_ID
--define:ENABLE_UNITYADS_RUNTIME
--define:UNITY_UNITYADS_API
 -define:ENABLE_MONO
 -define:ENABLE_PROFILER
 -define:DEBUG
@@ -82,6 +79,7 @@
 'Assets/Scripts/Enemies/enemyNormalMovement.cs'
 'Assets/Scripts/Game/gameManager.cs'
 'Assets/Scripts/Input/InputManager.cs'
+'Assets/Scripts/Input/MainMenu.cs'
 'Assets/Scripts/Input/VirtualLeftJoystick.cs'
 'Assets/Scripts/Input/VirtualRightJoystick.cs'
 'Assets/Scripts/Input/virtualButton.cs'
@@ -92,5 +90,3 @@
 'Assets/Scripts/PowerUps/powerupNormalMovement.cs'
 'Assets/Scripts/Utils/rotateOnStart.cs'
 'Assets/Scripts/Utils/scorerUpdater.cs'
--r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
--r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

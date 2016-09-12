@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FAA856BC-D7E8-90B6-4BE8-A8FAE4DAE3D7}</ProjectGuid>
+    <ProjectGuid>{213C3C52-CDC1-1B70-61C9-E543762AC967}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,22 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Particles\Particle Ribbon\Scripts\ReverseNormals.cs" />
-     <Compile Include="Assets\Scripts\Enemies\enemyController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\enemyNormalMovement.cs" />
-     <Compile Include="Assets\Scripts\Game\gameManager.cs" />
-     <Compile Include="Assets\Scripts\Input\InputManager.cs" />
-     <Compile Include="Assets\Scripts\Input\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\Input\VirtualLeftJoystick.cs" />
-     <Compile Include="Assets\Scripts\Input\VirtualRightJoystick.cs" />
-     <Compile Include="Assets\Scripts\Input\virtualButton.cs" />
-     <Compile Include="Assets\Scripts\Player\ballMovement.cs" />
-     <Compile Include="Assets\Scripts\Player\stickMovement.cs" />
-     <Compile Include="Assets\Scripts\PowerUps\powerUpBig.cs" />
-     <Compile Include="Assets\Scripts\PowerUps\powerupController.cs" />
-     <Compile Include="Assets\Scripts\PowerUps\powerupNormalMovement.cs" />
-     <Compile Include="Assets\Scripts\Utils\rotateOnStart.cs" />
-     <Compile Include="Assets\Scripts\Utils\scorerUpdater.cs" />
+     <Compile Include="Assets\Plugins\ILeanTween.cs" />
+     <Compile Include="Assets\Plugins\LTDescr.cs" />
+     <Compile Include="Assets\Plugins\LTDescrImpl.cs" />
+     <Compile Include="Assets\Plugins\LeanAudio.cs" />
+     <Compile Include="Assets\Plugins\LeanTest.cs" />
+     <Compile Include="Assets\Plugins\LeanTween.cs" />
      <None Include="Assets\Particles\Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -68,10 +58,6 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{213C3C52-CDC1-1B70-61C9-E543762AC967}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
