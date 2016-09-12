@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour {
 
 		Debug.Log("SELECT LEVEL");
 		canTouchThis = false;
-		status = 1;
+		status = 3;
 		paneles[1].transform.position = centerPos;
 		paneles[3].transform.position = enterPos;
 		LeanTween.move(paneles[1],exitPos, .5f);

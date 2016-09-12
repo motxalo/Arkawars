@@ -20,7 +20,7 @@ public class stickMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		Debug.Log("GRADOS AL CENTRO : "+Vector3.Angle((transform.position - target.transform.position), Vector3.right));
 		if ( bumping ==1){
 			transform.position += transform.up*bumpDistance;
 
