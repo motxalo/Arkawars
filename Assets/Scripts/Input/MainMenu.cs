@@ -80,7 +80,9 @@ public class MainMenu : MonoBehaviour {
 		}
 	}
 
-	void UpdateLevelSelec(){}
+	void UpdateLevelSelec(){
+		Application.LoadLevel(1);
+	}
 
 	void CanTouchThis(){
 		canTouchThis = true;
