@@ -21,15 +21,9 @@ public class powerupNormalMovement : MonoBehaviour {
         transform.position += dir * speed * Time.deltaTime;
     }
 
-    public void DieYouBastard(int playerId)
-    {
-        powerupController.KillPowerup(gameObject, playerId);
-        //Destroy(gameObject);
-        Invoke("Killed", .1f);
-    }
+	void OnDestroy () {
+		GameObject.Find ("Player").AddComponent<powerUpBig>();
+	}
 
-    private void Killed()
-    {
-        Destroy(gameObject);
-    }
+
 }

@@ -127,4 +127,10 @@ public class stickMovement : MonoBehaviour {
 	void Rotate(int dir){
 		transform.RotateAround (target.transform.position, Vector3.forward, vel*dir*Time.deltaTime);		
 	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "PowerUp") {
+			Destroy (other.gameObject);
+		}
+	}
 }
