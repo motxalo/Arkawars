@@ -14,8 +14,17 @@ public class enemyNormalMovement : MonoBehaviour {
 		dir = (objetive.position - transform.position).normalized;
 		transform.LookAt(objetive.position);
 		enemyController.AddEnemy(gameObject);
+		Born();
 	}
-	
+
+	float borderDistance = 10f;
+
+	void Born(){
+		transform.position = -1f*dir*borderDistance;
+		transform.localScale = Vector3.zero;
+		LeanTween.scale(gameObject, Vector3.one, .5f);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		transform.position += dir*speed*Time.deltaTime;
