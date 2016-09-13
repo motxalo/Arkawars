@@ -14,13 +14,25 @@ public class stickMovement : MonoBehaviour {
     public virtualButton aButton;
     public virtualButton bButton;
     // Use this for initialization
+	private float distanceToCenter;
     void Start () {
-		
+		distanceToCenter = Mathf.Abs((transform.position - target.transform.position).magnitude);
 	}
-	
+
+	public void MoveAngle(float angle){
+		float oldAngle = Vector3.Angle((transform.position - target.transform.position), Vector3.right);
+		if( transform.position.y > target.transform.position.y) oldAngle = 360f - oldAngle;
+		float newAngle = Mathf.Lerp(oldAngle, angle, rotateSpeed * Time.deltaTime);
+		//Debug.Log("MOVING : "+oldAngle+" TO : "+newAngle+" WANTED : "+angle);
+
+		transform.RotateAround (target.transform.position, Vector3.forward, oldAngle - newAngle);		
+	}
+
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("GRADOS AL CENTRO : "+Vector3.Angle((transform.position - target.transform.position), Vector3.right));
+		float oldAngle = Vector3.Angle((transform.position - target.transform.position), Vector3.right);
+		if( transform.position.y > target.transform.position.y) oldAngle  = 360f - oldAngle;
+		//Debug.Log("GRADOS AL CENTRO : "+oldAngle);
 		if ( bumping ==1){
 			transform.position += transform.up*bumpDistance;
 
