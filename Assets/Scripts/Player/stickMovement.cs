@@ -20,6 +20,7 @@ public class stickMovement : MonoBehaviour {
 	}
 
 	public void MoveAngle(float angle){
+		if(bumping!=0) return;
 		float oldAngle = Vector3.Angle((transform.position - target.transform.position), Vector3.right);
 		if( transform.position.y > target.transform.position.y) oldAngle = 360f - oldAngle;
 		float newAngle = Mathf.Lerp(oldAngle, angle, rotateSpeed * Time.deltaTime);

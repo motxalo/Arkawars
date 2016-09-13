@@ -23,10 +23,19 @@ public class MobileStick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 			//Debug.Log( "CLICK POINT : "+new Vector3(Input.mousePosition.x, Input.mousePosition.y,center.position.z) + " CENTER : "+transform.position);
 			#if UNITY_EDITOR
 				float angle = Vector3.Angle(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0f) - transform.position, Vector3.right);
+				Debug.Log("DISTANCE : "+Vector3.Distance(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0f) , transform.position));
+				if(Input.mousePosition.y > transform.position.y) angle = 360f - angle;
 			#else
-				float angle = Vector3.Angle(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y,0) - transform.position, Vector3.right);
+				Vector3 inputVector = Vector3.zero;
+				for (int i = 0; i< Input.touchCount; i++){
+					Vector3 tinputVector = new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y,0);
+					if ( tinputVector.x > Screen.width/2f )
+					//if ( Mathf.Abs(Vector3.Distance(inputVector, transform.position) < 120f) )
+						inputVector = tinputVector;
+				}
+				float angle = Vector3.Angle(inputVector - transform.position, Vector3.right);
+				if(inputVector.y > transform.position.y) angle = 360f - angle;
 			#endif
-			if(Input.mousePosition.y > transform.position.y) angle = 360f - angle;
 			stMovement.MoveAngle(angle);
 		}
 	}
