@@ -30,7 +30,7 @@ public class enemyNormalMovement : MonoBehaviour {
 		transform.position += dir*speed*Time.deltaTime;
 		// DEBUG
 		if ( Vector3.Distance(transform.position, objetive.position) < 1f ){
-			Application.LoadLevel(Application.loadedLevel);
+			Application.LoadLevel(0);
 			Debug.Log( " GAME OVER ");
 		}
 	}

@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour {
 		for (int i = 1; i < paneles.Length; i++){
 			paneles[i].transform.position = enterPos;
 		}
-		Invoke("CanTouchThis",.5f);
+		Invoke("CanTouchThis",1f);
 	}
 	
 	// Update is called once per frame
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour {
 			paneles[1].transform.position = enterPos;
 			LeanTween.move(paneles[0],exitPos, .5f);
 			LeanTween.move(paneles[1],centerPos, .5f);
-			Invoke("CanTouchThis",.5f);
+			Invoke("CanTouchThis",1f);
 		}
 	}
 
@@ -53,19 +53,19 @@ public class MainMenu : MonoBehaviour {
 		paneles[3].transform.position = enterPos;
 		LeanTween.move(paneles[1],exitPos, .5f);
 		LeanTween.move(paneles[3],centerPos, .5f);
-		Invoke("CanTouchThis",.5f);
+		Invoke("CanTouchThis",1f);
 	}
 
 	public void LeaderBoard(){
 
 		Debug.Log("LEADERBOARD");
 		canTouchThis = false;
-		status = 1;
+		status = 2;
 		paneles[1].transform.position = centerPos;
 		paneles[2].transform.position = enterPos;
 		LeanTween.move(paneles[1],exitPos, .5f);
 		LeanTween.move(paneles[2],centerPos, .5f);
-		Invoke("CanTouchThis",.5f);
+		Invoke("CanTouchThis",1f);
 	}
 
 	void UpdateLeaderboard(){
@@ -76,12 +76,14 @@ public class MainMenu : MonoBehaviour {
 			paneles[1].transform.position = enterPos;
 			LeanTween.move(paneles[2],exitPos, .5f);
 			LeanTween.move(paneles[1],centerPos, .5f);
-			Invoke("CanTouchThis",.5f);
+			Invoke("CanTouchThis",1f);
 		}
 	}
 
 	void UpdateLevelSelec(){
-		Application.LoadLevel(1);
+		if (Input.GetMouseButtonDown(0)){
+			Application.LoadLevel(1);
+		}
 	}
 
 	void CanTouchThis(){
