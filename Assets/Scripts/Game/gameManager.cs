@@ -22,6 +22,8 @@ public class gameManager : MonoBehaviour {
 	// Update is called once per frame
 	void LaunchEnemySet () {
 		Instantiate ( Resources.Load("EnemySet/EnemySet_"+launchSecuence[actualEnemy]) as GameObject);
+		if(actualEnemy >= launchSecuence.Length)
+			frecuency *= .8f;
 		actualEnemy = (actualEnemy+1)%launchSecuence.Length;
 		Invoke("LaunchEnemySet",frecuency);
 	}

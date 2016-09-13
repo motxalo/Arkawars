@@ -33,10 +33,18 @@ public class ballMovement : MonoBehaviour {
 		gravityVector.z = 0f;
 	}
 
+	float maxDistToCenter = 8.8f;
+
 	void FixedUpdate(){
 		speedModifier = Mathf.Clamp(speedModifier-Time.deltaTime, 0f, 5f);
 		UpdateGravity();
-		rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*(speed+speedModifier)* Time.deltaTime);
+		float distanceToCenter = Mathf.Abs((transform.position - gravityCenter.position).magnitude);
+		if ( distanceToCenter > maxDistToCenter ){
+			transform.position = gravityCenter.position + maxDistToCenter * (transform.position - gravityCenter.position ).normalized;
+			dir = gravityVector;
+			rb.MovePosition(transform.position + dir *(speed+speedModifier)* Time.deltaTime);
+		} else
+			rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*(speed+speedModifier)* Time.deltaTime);
 	}
 
 	void OnCollisionEnter (Collision col)
@@ -76,33 +84,5 @@ public class ballMovement : MonoBehaviour {
 		else
 			dir = Quaternion.Euler(0, 0,  180 + Vector3.Angle(-1 * dir,newNormal))*dir;
 	}
-
-	// Update is called once per frame
-	void Update () {
-
-		// TE LO QUITO TODO DESDE AQUI
-		return;
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-
-		/*movimiento*/
-		transform.Translate (Vector3.forward * Time.deltaTime * speed);
-
-		/*colision*/
-		Ray ray = new Ray (transform.position, transform.forward);
-		RaycastHit hit;
-		Debug.DrawRay(transform.position, transform.forward, Color.green);
-
-		if (Physics.Raycast (ray, out hit, Time.deltaTime * speed + .1f, collisionMask)) {
-			Vector3 reflectDir = Vector3.Reflect (ray.direction, hit.normal);
-			float rot = -1*( 90 - Mathf.Atan2 (reflectDir.x, reflectDir.y) * Mathf.Rad2Deg);
-			transform.eulerAngles = new Vector3 (rot, 90, 0);
-
-			if (hit.transform.tag == tagMask) {
-				Destroy (hit.transform.gameObject);
-			}
-		}
-	}
-
-
 
 }
