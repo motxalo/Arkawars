@@ -5,10 +5,15 @@ public class powerupNormalMovement : MonoBehaviour {
 
     public Transform objetive;
     private Vector3 dir;
-    private float speed = .2f;
+    private float speed = 1f;
+	private GameObject player;
+	public enum powerup {big,small, live} ;
+	public powerup lista;
+
     // Use this for initialization
     void Start()
     {
+		player = GameObject.Find ("Player");
         objetive = GameObject.Find("Planet").transform;
         dir = (objetive.position - transform.position).normalized;
         transform.LookAt(objetive.position);
@@ -22,7 +27,25 @@ public class powerupNormalMovement : MonoBehaviour {
     }
 
 	void OnDestroy () {
-		GameObject.Find ("Player").AddComponent<powerUpBig>();
+		powerupController.KillPowerup (gameObject);
+
+		switch (lista)
+		{
+		case powerup.big:			
+			if(player.GetComponent<powerUpBig>())
+			{
+				player.GetComponent<powerUpBig>().Remove();
+			}
+			player.AddComponent<powerUpBig>();
+			break;
+		case powerup.small:			
+			if(player.GetComponent<powerUpSmall>())
+			{
+				player.GetComponent<powerUpSmall>().Remove();
+			}
+			player.AddComponent<powerUpSmall>();
+			break;
+		}
 	}
 
 

@@ -36,10 +36,14 @@ public class enemyNormalMovement : MonoBehaviour {
 	}
 
 	public void DieYouBastard(int playerId){
+		int rand;
 		enemyController.KillEnemy(gameObject,playerId);
         //Destroy(gameObject);
-
-        Instantiate(Resources.Load("PowerupsSet/Powerup_" + powerupTypes[Random.Range(0,powerupTypes.Length-1)]) as GameObject,transform.position,transform.rotation);
+		rand=Random.Range(0,10);
+		Debug.Log (rand);
+		if(rand>7)
+			Instantiate(Resources.Load("PowerupsSet/Powerup_" + powerupTypes[Random.Range(0,powerupTypes.Length-1)]) as GameObject,transform.position,transform.rotation);
+		
         Invoke("Killed",.1f);
 	}
 
