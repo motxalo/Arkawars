@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Particles\Particle Ribbon\Scripts\ReverseNormals.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\SteeringBehaviours.cs" />
      <Compile Include="Assets\Scripts\Enemies\enemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\enemyNormalMovement.cs" />
      <Compile Include="Assets\Scripts\Game\gameManager.cs" />
