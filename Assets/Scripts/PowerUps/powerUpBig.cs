@@ -5,7 +5,7 @@ public class powerUpBig : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform.localScale = new Vector3(transform.localScale.x*2, transform.localScale.y, transform.localScale.z);
+        LeanTween.scale(gameObject, new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z), .5f);
 		Invoke ("Remove", 5f);
 	}
 	
@@ -16,12 +16,20 @@ public class powerUpBig : MonoBehaviour {
 
 	public void Remove() {
 		Debug.Log ("se acabo");
-		transform.localScale = new Vector3(transform.localScale.x/2, transform.localScale.y, transform.localScale.z);
+        LeanTween.scale(gameObject, new Vector3(transform.localScale.x/2, transform.localScale.y, transform.localScale.z), .5f);
 		Invoke("Killed",.1f);
 	}
 
+    public void RemoveNoLean()
+    {
+        Debug.Log("se acabo");        
+        transform.localScale = new Vector3(transform.localScale.x/2, transform.localScale.y, transform.localScale.z);
+        Invoke("Killed", .1f);
+        
+    }
 
-	private void Killed(){
+
+    private void Killed(){
 		Destroy(transform.GetComponent<powerUpBig>());
 	}
 }

@@ -34,14 +34,14 @@ public class powerupNormalMovement : MonoBehaviour {
 		case powerup.big:			
 			if(player.GetComponent<powerUpBig>())
 			{
-				player.GetComponent<powerUpBig>().Remove();
+				player.GetComponent<powerUpBig>().RemoveNoLean();
 			}
 			player.AddComponent<powerUpBig>();
 			break;
 		case powerup.small:			
 			if(player.GetComponent<powerUpSmall>())
 			{
-				player.GetComponent<powerUpSmall>().Remove();
+				player.GetComponent<powerUpSmall>().RemoveNoLean();
 			}
 			player.AddComponent<powerUpSmall>();
 			break;
