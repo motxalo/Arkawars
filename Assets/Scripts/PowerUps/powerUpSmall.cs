@@ -22,6 +22,6 @@ public class powerUpSmall : MonoBehaviour {
 
 
 	private void Killed(){
-		Destroy(transform.GetComponent<powerUpBig>());
+		Destroy(transform.GetComponent<powerUpSmall>());
 	}
 }
