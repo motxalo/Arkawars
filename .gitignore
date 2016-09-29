@@ -2,6 +2,7 @@
 obj
 Temp/*.*
 .vs
+Library
 
 #archivos
 Arkawars.CSharp.csproj
