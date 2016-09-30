@@ -58,6 +58,16 @@ public class ballMovement : MonoBehaviour {
 			col.collider.gameObject.SendMessage("DieYouBastard",playerId,SendMessageOptions.DontRequireReceiver);
 			break;
 		case "Player":
+			if(col.collider.GetComponent<powerUpGlue>())
+			{
+				speed = 0f;
+				Quaternion rotation = this.transform.rotation;
+				this.transform.parent = col.collider.transform;
+				this.transform.rotation = rotation;
+				//transform.localRotation = new Quaternion(0,90,0,0);
+				transform.localScale = new Vector3(.1f,.8f,.1f);
+				return;
+			}
 			if(col.collider.GetComponent<stickMovement>().Bumping()){
 				SetDirNormal(col.contacts[0].normal);
 				speedModifier = 3f;

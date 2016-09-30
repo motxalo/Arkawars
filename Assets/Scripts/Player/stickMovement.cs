@@ -89,8 +89,10 @@ public class stickMovement : MonoBehaviour {
         }
         */
         //FIN TECLADO
-			if(InputManager.BumpDown(playerId))
-				StartCoroutine("BumpPlayer");
+			if (InputManager.BumpDown (playerId)) {
+				//if
+				StartCoroutine ("BumpPlayer");
+			}
 		}
     }
 
