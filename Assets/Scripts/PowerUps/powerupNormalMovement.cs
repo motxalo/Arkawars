@@ -7,7 +7,7 @@ public class powerupNormalMovement : MonoBehaviour {
     private Vector3 dir;
     private float speed = 1f;
 	private GameObject player;
-	public enum powerup {big,small, live} ;
+	public enum powerup {big,small,life,glue} ;
 	public powerup lista;
 
     // Use this for initialization
@@ -45,8 +45,13 @@ public class powerupNormalMovement : MonoBehaviour {
 			}
 			player.AddComponent<powerUpSmall>();
 			break;
-		}
-	}
-
-
+        case powerup.glue:			
+			if (player.GetComponent<powerUpGlue>())
+            {
+                player.GetComponent<powerUpGlue>().Remove();
+            }
+            player.AddComponent<powerUpGlue>();
+            break;
+        }
+    }
 }
