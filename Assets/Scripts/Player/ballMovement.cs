@@ -61,12 +61,15 @@ public class ballMovement : MonoBehaviour {
 			if(col.collider.GetComponent<powerUpGlue>())
 			{
 				speed = 0f;
-				Quaternion rotation = this.transform.rotation;
-				this.transform.parent = col.collider.transform;
-				this.transform.rotation = rotation;
-				//transform.localRotation = new Quaternion(0,90,0,0);
-				transform.localScale = new Vector3(.1f,.8f,.1f);
-				return;
+                    //Quaternion rotation = this.transform.rotation;
+                    //this.transform.parent = col.collider.transform;
+                    //this.transform.rotation = rotation;
+                    //transform.localRotation = new Quaternion(0,90,0,0);
+                    //transform.localScale = new Vector3(.1f,.8f,.1f);
+                    //var emptyObject = new GameObject();
+                    //emptyObject.transform.parent = col.collider.transform;
+                    this.transform.parent = GameObject.Find("PlayerEmpty").transform;
+                    return;
 			}
 			if(col.collider.GetComponent<stickMovement>().Bumping()){
 				SetDirNormal(col.contacts[0].normal);
