@@ -23,5 +23,7 @@ public class powerUpGlue : MonoBehaviour {
     private void Killed()
     {
         Destroy(transform.GetComponent<powerUpGlue>());
+		GameObject.Find ("Ball").GetComponent<ballMovement>().speed = 5f;
+		GameObject.Find ("Ball").transform.parent = null;
     }
 }

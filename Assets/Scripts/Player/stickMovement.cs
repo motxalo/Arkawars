@@ -114,7 +114,7 @@ public class stickMovement : MonoBehaviour {
 	}
 
 	void BumpPlayer(int dir)
-    {
+    {		
         float oldrotation = rotation;
 
         if (dir == 0)
@@ -122,7 +122,7 @@ public class stickMovement : MonoBehaviour {
         else
             rotation = Mathf.Clamp(rotation + dir * rotateSpeed * 1000 * Time.deltaTime, -1f * maxRotation, maxRotation);
 
-        transform.Rotate(new Vector3(0f, 0f, rotation - oldrotation));
+		transform.FindChild("Player").transform.Rotate(new Vector3(0f, 0f, rotation - oldrotation));
     }
 
     void RotatePlayer( float amount ){
