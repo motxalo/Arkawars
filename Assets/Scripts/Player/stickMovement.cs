@@ -90,13 +90,21 @@ public class stickMovement : MonoBehaviour {
         */
         //FIN TECLADO
 			if (InputManager.BumpDown (playerId)) {
-				//if
-				StartCoroutine ("BumpPlayer");
+                //if
+                if(transform.FindChild("Player").transform.GetComponent<powerUpGlue>())
+                {
+                    GameObject.Find("Ball").GetComponent<ballMovement>().speed = 5f;
+                    GameObject.Find("Ball").transform.parent = null;
+                    GameObject.Find("Ball").GetComponent<ballMovement>().dir= (GameObject.Find("Crossfire").transform.position - GameObject.Find("Player").transform.position).normalized;
+                    /*aqui hay que poner la direccion de la bola hacia la mirilla*/
+                }
+                else
+                    StartCoroutine ("BumpPlayer");
 			}
 		}
     }
 
-	private int bumping = 0;
+    private int bumping = 0;
 	public float bumptime = .2f;
 	public float bumpDistance =.01f;
 	IEnumerator BumpPlayer(){

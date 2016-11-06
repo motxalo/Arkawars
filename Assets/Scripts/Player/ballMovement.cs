@@ -80,7 +80,7 @@ public class ballMovement : MonoBehaviour {
 		dir = newNormal;
 	}
 
-	void SetNewDir(Vector3 newNormal, bool isPlayer){
+	public void SetNewDir(Vector3 newNormal, bool isPlayer){
 		newNormal.z = 0f;
 		newNormal.Normalize();
 		dir = Vector3.Reflect(dir,newNormal);
