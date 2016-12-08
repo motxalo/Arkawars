@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class stickMovement : MonoBehaviour {
+public class playerMovement : MonoBehaviour {
 
 	public int playerId = 1;
 	public GameObject target;
@@ -11,8 +11,6 @@ public class stickMovement : MonoBehaviour {
 	private float rotation = 0;
     public virtualLeftJoystick leftJoystick;
     public virtualRightJoystick rightJoystick;
-    public virtualButton aButton;
-    public virtualButton bButton;
     // Use this for initialization
 	private float distanceToCenter;
     void Start () {
@@ -41,26 +39,33 @@ public class stickMovement : MonoBehaviour {
 			transform.position -= transform.up*bumpDistance;
 		}
 		else{
+        	//TACTIL
+			/*
+        	if (leftJoystick.Horizontal()>0)
+            	Rotate(-1);
+        	else if (leftJoystick.Horizontal() < 0)
+            	Rotate(1);
 
-            //TECLADO
-            if (InputManager.MoveLeft(playerId))
-                Rotate(1);
-            else if (InputManager.MoveRight(playerId))
-                Rotate(-1);
-            else
-                Rotate(0);
+	        if (rightJoystick.Horizontal() > 0)
+    	        RotatePlayer(-1f);
+   	     	else if (rightJoystick.Horizontal() < 0)
+   	         	RotatePlayer(1f);
 
-		/*
-        if (Input.GetKeyDown(KeyCode.Q)){
-            BumpPlayer(-1);
-        }else if (Input.GetKeyDown(KeyCode.E)){
-            BumpPlayer(1);
-        }
+       	 	if (aButton.ReturnValue() == 1)
+            	BumpPlayer(-1);
+        	else if (bButton.ReturnValue() == 1)
+            	BumpPlayer(1);
+        	else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
+            	BumpPlayer(0);
+            	*/
+        //FIN TACTIL
 
-        if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E)){
-            BumpPlayer(0);
-        }
-        */
+        //TECLADO
+			if (InputManager.MoveLeft(playerId))
+            	Rotate(1);
+			else if (InputManager.MoveRight(playerId))
+            	Rotate(-1);
+
         //FIN TECLADO
 			if (InputManager.BumpDown (playerId)) {
                 //if

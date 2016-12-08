@@ -33,17 +33,17 @@ public class ballMovement : MonoBehaviour {
 		gravityVector.z = 0f;
 	}
 
-	float maxDistToCenter = 8.8f;
+	float maxDistToCenter = 4f;
 
 	void FixedUpdate(){
 		speedModifier = Mathf.Clamp(speedModifier-Time.deltaTime, 0f, 5f);
 		UpdateGravity();
 		float distanceToCenter = Mathf.Abs((transform.position - gravityCenter.position).magnitude);
-		if ( distanceToCenter > maxDistToCenter ){
+		/*if ( distanceToCenter > maxDistToCenter ){
 			transform.position = gravityCenter.position + maxDistToCenter * (transform.position - gravityCenter.position ).normalized;
 			dir = gravityVector;
 			rb.MovePosition(transform.position + dir *(speed+speedModifier)* Time.deltaTime);
-		} else
+		} else*/
 			rb.MovePosition(transform.position + (dir + gravityVector*gravity).normalized*(speed+speedModifier)* Time.deltaTime);
 	}
 
@@ -64,7 +64,7 @@ public class ballMovement : MonoBehaviour {
 				this.transform.parent = GameObject.Find("PlayerEmpty").transform;
 				return;
 			}
-			if(col.collider.GetComponent<stickMovement>().Bumping()){
+			if(col.collider.GetComponent<playerMovement>().Bumping()){
 				SetDirNormal(col.contacts[0].normal);
 				speedModifier = 3f;
 				return;
