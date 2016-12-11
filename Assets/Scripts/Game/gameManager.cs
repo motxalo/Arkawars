@@ -14,7 +14,7 @@ public class gameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Invoke("LaunchEnemySet",.1f);
+		//Invoke("LaunchEnemySet",.1f);
 	}
 
 

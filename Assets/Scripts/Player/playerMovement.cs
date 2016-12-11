@@ -9,8 +9,6 @@ public class playerMovement : MonoBehaviour {
 	public float rotateSpeed = 2f;
 	public float maxRotation = 45;
 	private float rotation = 0;
-    public virtualLeftJoystick leftJoystick;
-    public virtualRightJoystick rightJoystick;
     // Use this for initialization
 	private float distanceToCenter;
     void Start () {
@@ -39,26 +37,6 @@ public class playerMovement : MonoBehaviour {
 			transform.position -= transform.up*bumpDistance;
 		}
 		else{
-        	//TACTIL
-			/*
-        	if (leftJoystick.Horizontal()>0)
-            	Rotate(-1);
-        	else if (leftJoystick.Horizontal() < 0)
-            	Rotate(1);
-
-	        if (rightJoystick.Horizontal() > 0)
-    	        RotatePlayer(-1f);
-   	     	else if (rightJoystick.Horizontal() < 0)
-   	         	RotatePlayer(1f);
-
-       	 	if (aButton.ReturnValue() == 1)
-            	BumpPlayer(-1);
-        	else if (bButton.ReturnValue() == 1)
-            	BumpPlayer(1);
-        	else if (aButton.ReturnValue() == 0 || bButton.ReturnValue() == 0)
-            	BumpPlayer(0);
-            	*/
-        //FIN TACTIL
 
         //TECLADO
 			if (InputManager.MoveLeft(playerId))
@@ -69,7 +47,7 @@ public class playerMovement : MonoBehaviour {
         //FIN TECLADO
 			if (InputManager.BumpDown (playerId)) {
                 //if
-                if(transform.FindChild("Player").transform.GetComponent<powerUpGlue>())
+                if(GetComponent<powerUpGlue>())
                 {
                     GameObject.Find("Ball").GetComponent<ballMovement>().speed = 5f;
                     GameObject.Find("Ball").transform.parent = null;
