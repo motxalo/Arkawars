@@ -104,7 +104,12 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	void Rotate(int dir){
-		transform.RotateAround (target.transform.position, Vector3.forward, vel*dir*Time.deltaTime);		
+        float newAngle = transform.eulerAngles.z + vel * dir * Time.deltaTime;
+        Debug.Log(newAngle);
+        if (newAngle <= 90 && newAngle >= -1 || newAngle <= 362 && newAngle >= 270)
+        {
+            transform.RotateAround(target.transform.position, Vector3.forward, vel * dir * Time.deltaTime);
+        }	
 	}
 
 	void OnTriggerEnter(Collider other) {
