@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour {
 	int actualEnemy = 0;
 
 	void Awake(){
-		InputManager.InitMobileInput();
+	//InputManager.InitMobileInput();
 	}
 
 	// Use this for initialization
