@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerController : MonoBehaviour {
-
+	public enum blockAlignment { LEFT, RIGHT, UP, DOWN}
+	public blockAlignment align;
 	// Use this for initialization
 	void Start () {
 		actualDisplacement = 0f;
@@ -15,14 +16,7 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//DEBUG
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			MoveLeft ();
-		} else if (Input.GetKey (KeyCode.RightArrow)) {
-			MoveRight ();
-		} else {
-			Deccelerate ();
-		}
+		
 		UpdateMovement ();
 	}
 
@@ -31,15 +25,32 @@ public class playerController : MonoBehaviour {
 		movementSpeed = Mathf.Clamp (movementSpeed, -1 * movementMaxSpeed, movementMaxSpeed);
 		actualDisplacement = Mathf.Clamp (actualDisplacement + movementSpeed*Time.deltaTime , -movementMargin, movementMargin);
 
-		transform.localPosition = initialPosition + new Vector3 (actualDisplacement, 0f, 0f);
+		//transform.localPosition = initialPosition + new Vector3 (actualDisplacement, 0f, 0f);
 
 		// Rotation
 
 		rotateSpeed = Mathf.Clamp (rotateSpeed, -1 * rotateSpeedMax, rotateSpeedMax);
 		actualRotation = Mathf.Clamp (actualRotation + rotateSpeed*Time.deltaTime , -rotateMargin, rotateMargin);
 
-		transform.localRotation = Quaternion.Euler(initialRotation + new Vector3(0f,0f,actualRotation));
-	
+		//transform.localRotation = Quaternion.Euler(initialRotation + new Vector3(0f,0f,actualRotation));
+		switch (align) {
+		case blockAlignment.DOWN:
+			transform.localPosition = initialPosition + new Vector3 (actualDisplacement, 0f, 0f);
+			transform.localRotation = Quaternion.Euler (initialRotation + new Vector3 (0f, 0f, actualRotation));
+			break;
+		case blockAlignment.UP:
+			transform.localPosition = initialPosition - new Vector3 (actualDisplacement, 0f, 0f);
+			transform.localRotation = Quaternion.Euler (initialRotation + new Vector3 (0f, 0f, actualRotation));
+			break;
+		case blockAlignment.LEFT:
+			transform.localPosition = initialPosition + new Vector3 (0f, actualDisplacement, 0f);
+			transform.localRotation = Quaternion.Euler (initialRotation - new Vector3 (0f, 0f, actualRotation));
+			break;
+		case blockAlignment.RIGHT:
+			transform.localPosition = initialPosition + new Vector3 (0f, actualDisplacement, 0f);
+			transform.localRotation = Quaternion.Euler (initialRotation + new Vector3 (0f, 0f, actualRotation));
+			break;
+		}
 	}
 
 	private Vector3 initialPosition; // x axis
@@ -49,13 +60,13 @@ public class playerController : MonoBehaviour {
 	public float movementMaxSpeed = 2f;
 	public float movementAcceleration = 1f;
 
-	void MoveLeft (){
+	public void MoveLeft (){
 		float modifier = (movementSpeed > 0f) ? 3f : 1f;
 		movementSpeed -= movementAcceleration * Time.deltaTime * modifier;
 		RotateLeft ();
 	}
 
-	void MoveRight(){
+	public void MoveRight(){
 		float modifier = (movementSpeed < 0f) ? 3f : 1f;
 		movementSpeed += movementAcceleration * Time.deltaTime * modifier;
 		RotateRight ();
@@ -63,7 +74,7 @@ public class playerController : MonoBehaviour {
 
 	public float decceleration = 10f;
 
-	void Deccelerate(){
+	public void Deccelerate(){
 		if (movementSpeed > 0f)
 			movementSpeed = Mathf.Clamp (movementSpeed - decceleration * Time.deltaTime, 0f, movementMaxSpeed);
 		else if (movementSpeed < 0f)

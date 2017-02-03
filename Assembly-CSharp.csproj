@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Enemies\enemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\enemyNormalMovement.cs" />
      <Compile Include="Assets\Scripts\Game\gameManager.cs" />
+     <Compile Include="Assets\Scripts\IA\debugIAController.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Input\MobileStick.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\Scripts\Input\VirtualRightJoystick.cs" />
      <Compile Include="Assets\Scripts\Input\virtualButton.cs" />
      <Compile Include="Assets\Scripts\Player\ballMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\debugPlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\playerController.cs" />
      <Compile Include="Assets\Scripts\Player\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\stickMovement.cs" />
