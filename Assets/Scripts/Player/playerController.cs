@@ -79,12 +79,12 @@ public class playerController : MonoBehaviour {
 	public float rotateSpeed = 0f;
 
 	void RotateLeft(){
-		float modifier = (rotateSpeed < 0f) ? 3f : 1f;
+		float modifier = (rotateSpeed < 0f) ? 40f : 1f;
 		rotateSpeed += rotateAcceleration * Time.deltaTime * modifier;
 	}
 
 	void RotateRight(){
-		float modifier = (rotateSpeed > 0f) ? 3f : 1f;
+		float modifier = (rotateSpeed > 0f) ? 40f : 1f;
 		rotateSpeed -= rotateAcceleration * Time.deltaTime * modifier;
 	}
 
