@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Input\VirtualRightJoystick.cs" />
      <Compile Include="Assets\Scripts\Input\virtualButton.cs" />
      <Compile Include="Assets\Scripts\Player\ballMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\playerController.cs" />
      <Compile Include="Assets\Scripts\Player\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\stickMovement.cs" />
      <Compile Include="Assets\Scripts\PowerUps\powerUpBig.cs" />

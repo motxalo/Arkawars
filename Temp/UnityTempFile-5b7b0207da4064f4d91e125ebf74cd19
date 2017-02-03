@@ -90,6 +90,7 @@ Assets/Scripts/Input/VirtualLeftJoystick.cs
 Assets/Scripts/Input/VirtualRightJoystick.cs
 Assets/Scripts/Input/virtualButton.cs
 Assets/Scripts/Player/ballMovement.cs
+Assets/Scripts/Player/playerController.cs
 Assets/Scripts/Player/playerMovement.cs
 Assets/Scripts/Player/stickMovement.cs
 Assets/Scripts/PowerUps/powerUpBig.cs
